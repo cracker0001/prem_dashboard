@@ -131,8 +131,46 @@ export default function Login() {
   }
 
   return (
-    <div className="login-container">
-      ...
+        <div className="login-container">
+      
+      <div className="tractor-image">
+        
+          <img src="moonriderImage.png" alt="" />
+      </div>
+      <div className="login-validation">
+        <div className="logo">
+           {message && <p className="message">{message}</p>}
+         
+           <img src="mrlogo.svg" alt="moonrider logo" />
+        </div>
+         <div className="login-inputs">
+         
+           <form onSubmit={handleSubmit} className="login-form">
+             <label htmlFor="email">Email</label>
+             <input
+               type="email"
+               placeholder="Enter Your Email"
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+               required
+               autoComplete="off"
+             />
+              <label htmlFor="password">Password</label>
+             <input
+               type="password"
+               placeholder="Enter Your Password"
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+               required
+               autoComplete="new-password"
+             />
+             <button type="submit">Login</button>
+           </form>
+         
+        </div>
+
+      </div>
+     
     </div>
   );
 }
