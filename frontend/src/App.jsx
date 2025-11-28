@@ -3,10 +3,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import Vehicle1 from "./pages/LiveData";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import "./App.css";
-import Graph from "./pages/graph";
 import Presentation from "./pages/Presentation";
 import VehiclePage from "./pages/VehiclePage";
 
