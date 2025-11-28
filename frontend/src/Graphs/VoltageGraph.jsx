@@ -1,0 +1,83 @@
+// import React, { useEffect, useRef } from "react";
+// import * as echarts from "echarts";
+
+// export default function VoltageGraph({ data }) {
+//   const chartRef = useRef(null);
+//   const chart = useRef(null);
+
+//   // Create chart ONCE
+//   useEffect(() => {
+//     if (!chart.current) {
+//       chart.current = echarts.init(chartRef.current);
+//     }
+//     return () => {
+//       // dispose ONLY when component unmounts (NOT on data change)
+//       chart.current && chart.current.dispose();
+//     };
+//   }, []);
+
+//   // Update chart when data changes
+//   useEffect(() => {
+//     if (!chart.current) return;
+
+//     const times = data.map(d => d.time);
+//     const voltage = data.map(d => d.voltage);
+
+//     chart.current.setOption({
+//       title: { text: "Battery Voltage" },
+//       tooltip: { trigger: "axis" },
+//       xAxis: { type: "category", data: times },
+//       yAxis: { type: "value" },
+//       series: [{ type: "line", smooth: true, data: voltage }]
+//     });
+//   }, [data]);
+
+//   return (
+//     <div
+//       ref={chartRef}
+//       style={{ width: "100%", height: "250px" }}
+//     />
+//   );
+// }
+import React, { useEffect, useRef } from "react";
+import * as echarts from "echarts";
+
+export default function VoltageGraph({ data }) {
+  const chartRef = useRef(null);
+  const chart = useRef(null);
+
+  // Create chart once
+  useEffect(() => {
+    if (!chart.current) {
+      chart.current = echarts.init(chartRef.current);
+    }
+    return () => {
+      chart.current && chart.current.dispose();
+    };
+  }, []);
+
+  // Update chart on data change
+  useEffect(() => {
+    if (!chart.current) return;
+
+    const times = data.map(d => d.time);
+    const voltage = data.map(d => d.voltage);
+
+    chart.current.setOption({
+      title: { text: "Battery Voltage vs Time", left: "center" },
+      tooltip: { trigger: "axis" },
+      xAxis: { type: "category", data: times, axisLabel: { rotate: 45 } },
+      yAxis: { type: "value", name: "Voltage (V)" },
+      series: [
+        {
+          name: "Voltage",
+          type: "line",
+          smooth: true,
+          data: voltage
+        }
+      ]
+    });
+  }, [data]);
+
+  return <div ref={chartRef} style={{ height: "280px", width: "100%" }} />;
+}
