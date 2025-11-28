@@ -17,23 +17,21 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      {/* Protected routes */}
+    
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<Dashboard />}>
-          {/* DEFAULT → VEHICLE */}
+        
           <Route index element={<Navigate to="vehicle" replace />} />
 
-          {/* VEHICLE PAGE */}
+      
           <Route path="vehicle" element={<VehiclePage />} />
 
-          {/* PRESENTATION PAGE */}
+          
           <Route path="presentation" element={<Presentation />} />
 
         </Route>
 
-        {/* <Route path="/vehicle1" element={<Vehicle1 />} />
-        <Route path="/graph" element={<Graph />} />
-        */}
+        
       </Route>
 
       <Route path="*" element={<h2>Page not found</h2>} />

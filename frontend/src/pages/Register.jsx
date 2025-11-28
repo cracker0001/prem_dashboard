@@ -1,6 +1,114 @@
+// import React, { useEffect, useState } from "react";
+// import "./Register.css"; 
+// import { useNavigate } from "react-router-dom";
+// const Register = () => {
+
+//   const [formData, setFormData] = useState({
+//     email: "",
+//     password: "",
+//   });
+//   const [message, setMessage] = useState("");
+//   const navigate = useNavigate();
+//   useEffect(() => {
+//     setFormData({ email: "", password: "" });
+//   }, []);
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setMessage("");
+
+//     try {
+//       const response = await fetch(
+//         "https://backend-prod.moonrider.ai/dashboard/register",
+//         {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify(formData),
+//         }
+//       );
+
+//       if (response.ok) {
+//         await response.json();
+//         setMessage("✅ Registration successful!");
+
+//         setFormData({ email: "", password: "" });
+
+//         setTimeout(() => navigate("/login"), 1500);
+//       } else {
+//         const error = await response.json();
+//         setMessage(error.message || "❌ Registration failed");
+//       }
+//     } catch (err) {
+//       console.error("Error:", err);
+//       setMessage("❌ Something went wrong");
+//     }
+//   };
+
+
+//   return (
+//   <div className="register-container">
+//         <div className="tractor-image">
+//           <img src="moonriderImage.png" alt="tractor-image" />
+//         </div>
+//         <div className="register-validation">
+//             <div className="mr-logo">
+//               {message && <p className="message">{message}</p>}
+//               <img src="mrlogo.svg" alt="moonrider-logo" />
+//             </div>
+//             <div className="register-box">
+//               <form onSubmit={handleSubmit}>
+//                 <label htmlFor="email">Email</label>
+//                 <input
+//                   type="email"
+//                   name="email"
+//                   placeholder="Enter your Email"
+//                   value={formData.email}
+//                   onChange={handleChange}
+//                   required
+//                   autoComplete="off" 
+//                 />
+//                 <label htmlFor="password">Password</label>
+//                 <input
+//                   type="password"
+//                   name="password"
+//                   placeholder="Enter your Password"
+//                   value={formData.password}
+//                   onChange={handleChange}
+//                   required
+//                   autoComplete="new-password" 
+//                 />
+//                 <button type="submit">Register</button>
+//               </form>
+              
+              
+//             </div>
+//            <div className="switch-to-login">
+//              <p className="login-redirect">
+//               Already have an account?{" "}
+//               <span
+//                 style={{ color: "#fa9703", fontWeight: "600", cursor: "pointer" }}
+//                 onClick={() => navigate("/login")}
+//                 >
+//                 Login
+//               </span>
+//               </p>      
+//            </div>
+//         </div>
+//   </div>
+//   );
+// };
+// export default Register;
+
 import React, { useEffect, useState } from "react";
 import "./Register.css"; 
 import { useNavigate } from "react-router-dom";
+
+const API = import.meta.env.VITE_API_URL;   // <-- Added this
+
 const Register = () => {
 
   const [formData, setFormData] = useState({
@@ -9,7 +117,7 @@ const Register = () => {
   });
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  // Reset form on mount (prevents React Fast Refresh from keeping values)
+
   useEffect(() => {
     setFormData({ email: "", password: "" });
   }, []);
@@ -23,20 +131,16 @@ const Register = () => {
     setMessage("");
 
     try {
-      const response = await fetch(
-        "https://backend-prod.moonrider.ai/dashboard/register",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${API}/dashboard/register`, {   // <-- UPDATED
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
         await response.json();
         setMessage("✅ Registration successful!");
 
-        // reset inputs after success
         setFormData({ email: "", password: "" });
 
         setTimeout(() => navigate("/login"), 1500);
@@ -50,57 +154,11 @@ const Register = () => {
     }
   };
 
-
   return (
-  <div className="register-container">
-        <div className="tractor-image">
-          <img src="moonriderImage.png" alt="tractor-image" />
-        </div>
-        <div className="register-validation">
-            <div className="mr-logo">
-              {message && <p className="message">{message}</p>}
-              <img src="mrlogo.svg" alt="moonrider-logo" />
-            </div>
-            <div className="register-box">
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  autoComplete="off" 
-                />
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter your Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                  autoComplete="new-password" 
-                />
-                <button type="submit">Register</button>
-              </form>
-              
-              
-            </div>
-           <div className="switch-to-login">
-             <p className="login-redirect">
-              Already have an account?{" "}
-              <span
-                style={{ color: "#fa9703", fontWeight: "600", cursor: "pointer" }}
-                onClick={() => navigate("/login")}
-                >
-                Login
-              </span>
-              </p>      
-           </div>
-        </div>
-  </div>
+    <div className="register-container">
+      ...
+    </div>
   );
 };
+
 export default Register;
