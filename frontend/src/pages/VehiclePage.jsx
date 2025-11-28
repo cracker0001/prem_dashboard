@@ -247,9 +247,8 @@ import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import "./Dashboard.css";
 import LiveData from "./LiveData.jsx";
-import Graph from "./graph.jsx";
 import "./VehiclePage.css";
-import { fetchVehicle, fetchData } from "../api.jsx";   // <-- NEW IMPORT
+import { fetchVehicle, fetchData } from "../api.jsx";   
 
 export default function VehiclePage() {
   const [tractorId, setTractorId] = useState("");
