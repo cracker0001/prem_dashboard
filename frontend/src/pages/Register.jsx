@@ -107,7 +107,7 @@ import React, { useEffect, useState } from "react";
 import "./Register.css"; 
 import { useNavigate } from "react-router-dom";
 
-const API = import.meta.env.VITE_API_URL;   // <-- Added this
+const API = "https://backend-prod.moonrider.ai";   // FIXED
 
 const Register = () => {
 
@@ -131,7 +131,7 @@ const Register = () => {
     setMessage("");
 
     try {
-      const response = await fetch(`${API}/dashboard/register`, {   
+      const response = await fetch(`${API}/dashboard/register`, {   // FIXED
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -154,58 +154,56 @@ const Register = () => {
     }
   };
 
-return(
-     <div className="register-container">
-        <div className="tractor-image">
-          <img src="moonriderImage.png" alt="tractor-image" />
+  return (
+    <div className="register-container">
+      <div className="tractor-image">
+        <img src="moonriderImage.png" alt="tractor-image" />
+      </div>
+      <div className="register-validation">
+        <div className="mr-logo">
+          {message && <p className="message">{message}</p>}
+          <img src="mrlogo.svg" alt="moonrider-logo" />
         </div>
-        <div className="register-validation">
-            <div className="mr-logo">
-              {message && <p className="message">{message}</p>}
-              <img src="mrlogo.svg" alt="moonrider-logo" />
-            </div>
-            <div className="register-box">
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  autoComplete="off" 
-                />
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter your Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                  autoComplete="new-password" 
-                />
-                <button type="submit">Register</button>
-              </form>
-              
-              
-            </div>
-           <div className="switch-to-login">
-             <p className="login-redirect">
-              Already have an account?{" "}
-              <span
-                style={{ color: "#fa9703", fontWeight: "600", cursor: "pointer" }}
-                onClick={() => navigate("/login")}
-                >
-                Login
-              </span>
-              </p>      
-           </div>
+        <div className="register-box">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              autoComplete="off" 
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              autoComplete="new-password" 
+            />
+            <button type="submit">Register</button>
+          </form>
         </div>
-  </div>
+        <div className="switch-to-login">
+          <p className="login-redirect">
+            Already have an account?{" "}
+            <span
+              style={{ color: "#fa9703", fontWeight: "600", cursor: "pointer" }}
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </span>
+          </p>      
+        </div>
+      </div>
+    </div>
   );
-
 };
 
 export default Register;
+
