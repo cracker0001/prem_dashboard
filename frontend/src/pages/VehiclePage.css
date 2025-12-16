@@ -1,7 +1,6 @@
 .vehiclepage{
     width: 100%;
     height: 100%;
-
 }
 .text{
     margin-left: 4%;
@@ -124,6 +123,7 @@
 
 
 .content {
+  margin-top: 2%;
   width: 80%;
   display: flex;
   justify-content: start;
@@ -248,3 +248,101 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 .all{
   margin-top: 29.09%;
 } 
+
+.status-text {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.error-text {
+  margin-top: 20px;
+  color: red;
+}
+
+
+.table-wrapper {
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.table-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+.download-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background: #1e40af;
+}
+
+
+.table-container {
+  max-height: 65vh;
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+
+.professional-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+  font-size: 13px;
+}
+
+
+.professional-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f9fafb;
+  color: #374151;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+
+.professional-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.professional-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+
+.professional-table tbody tr:hover {
+  background: #eef2ff;
+}
