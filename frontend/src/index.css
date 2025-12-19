@@ -11,7 +11,7 @@ html, body, #root {
   height: 100%;
 }
 @media screen
-  and (min-width: 1600px)
+  and (min-width: 3840px)
   and (aspect-ratio: 16 / 9) {
 
   html {
