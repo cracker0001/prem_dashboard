@@ -85,7 +85,7 @@ function LiveData({ info }) {
   </span>
 </p>
 
-                </div>
+    </div>
                 
             
              <div className="card-map">
@@ -107,11 +107,14 @@ function LiveData({ info }) {
                 </MapContainer>
               ) : <p>No location available</p>}
             </div>
+              <div className="map-values">
+                <p className="row"><span className="key">Latitude:</span><span className="value">{latitude}</span></p>
+                <p className="row"><span className="key">Longitude:</span><span className="value">{longitude}</span></p>
+                <p className="row"><span className="key">Speed:</span><span className="value">{info.speed} km/h</span></p>
 
-            <p className="row"><span className="key">Latitude:</span><span className="value">{latitude}</span></p>
-            <p className="row"><span className="key">Longitude:</span><span className="value">{longitude}</span></p>
-            <p className="row"><span className="key">Speed:</span><span className="value">{info.speed} km/h</span></p>
-          </div>
+              </div>
+            
+            </div>
                  {/* MOTOR INFO */}
             <div className="motor-info">
                 <div className="card-header">

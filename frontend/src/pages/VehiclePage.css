@@ -130,11 +130,7 @@
   margin-left: 3%;
   align-items: center;
   gap: 40px;
-
-
- bottom: 0%;
-
-
+  bottom: 0%;
 }
 
 .content button {
@@ -345,4 +341,239 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 
 .professional-table tbody tr:hover {
   background: #eef2ff;
+}
+/* @media screen
+  and (min-width: 1600px)
+  and (aspect-ratio: 16 / 9) {
+
+  body,
+  .vehiclepage {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .vin-details {
+  min-height: auto;
+}
+
+.vin-box {
+  min-height: auto;
+  border-radius: 28px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+}
+
+
+  .vehicle-value-left {
+    padding-top: 3%;
+    padding-left: 3%;
+  }
+
+  .input-vin input {
+    width: 70%;
+    font-size: 1.4rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .dates {
+    gap: 14%;
+    margin-top: 3%;
+  }
+
+  .start-date input,
+  .end-date input {
+    width: 70%;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .date-lable {
+    height: 2.2rem;
+    font-size: 1.1rem;
+  }
+
+  .submit {
+    height: 18%;
+    margin-top: 4%;
+  }
+
+  .submit button {
+    width: 70%;
+    height: 3.8rem;
+    font-size: 1.5rem;
+    border-radius: 30px;
+  }
+
+  .vehicle-value-right .instructions {
+    font-size: 1.2rem;
+    line-height: 2.2;
+  }
+
+  .content {
+    gap: 60px;
+  }
+
+  .content button {
+    font-size: 1.3rem;
+  }
+
+  .tab-box {
+    width: 95%;
+    padding: 32px;
+    border-radius: 22px;
+  }
+
+  .tab-box button {
+    font-size: 1.2rem;
+    padding: 10px 22px;
+    border-radius: 24px;
+  }
+
+  .table-container {
+    max-height: none;
+    overflow: hidden;
+  }
+
+  .professional-table {
+    font-size: 1.1rem;
+  }
+
+  .professional-table thead th {
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+
+  .professional-table tbody td {
+    padding: 14px 16px;
+    max-width: none;
+  }
+} */
+
+@media screen
+  and (min-width: 1600px)
+  and (aspect-ratio: 16 / 9) {
+
+  /* ---------- PAGE SCROLL FIX ---------- */
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+
+  .vehiclepage {
+    width: 100%;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  /* ---------- VIN SECTION ---------- */
+  .vin-details {
+    min-height: auto;
+  }
+
+  .vin-box {
+    min-height: auto;
+    border-radius: 28px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  }
+
+  /* ---------- LEFT SECTION ---------- */
+  .vehicle-value-left {
+    padding-top: 3%;
+    padding-left: 3%;
+  }
+
+  /* ---------- VIN INPUT ---------- */
+  .input-vin input {
+    width: 70%;
+    font-size: 1.4rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  /* ---------- DATE SECTION ---------- */
+  .dates {
+    gap: 14%;
+    margin-top: 3%;
+  }
+
+  .start-date input,
+  .end-date input {
+    width: 70%;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .date-lable {
+    height: 2.2rem;
+    font-size: 1.1rem;
+  }
+
+  /* ---------- SUBMIT BUTTON ---------- */
+  .submit {
+    margin-top: 4%;
+    margin-bottom: 2%;
+  }
+
+  .submit button {
+    width: 70%;
+    height: 7vh;
+    font-size: 1.7rem;
+    border-radius: 20px;
+    
+  }
+
+  /* ---------- INSTRUCTIONS ---------- */
+  .vehicle-value-right .instructions {
+    font-size: 1.2rem;
+    line-height: 4.5;
+  }
+
+  /* ---------- TABS ---------- */
+  .content {
+    gap: 60px;
+  }
+
+  .content button {
+    font-size: 1.3rem;
+  }
+
+  /* ---------- TAB CONTAINER ---------- */
+  .tab-box {
+    width: 95%;
+    padding: 32px;
+    border-radius: 22px;
+  }
+
+  .tab-box button {
+    font-size: 1.2rem;
+    padding: 10px 22px;
+    border-radius: 24px;
+  }
+
+  /* ---------- TABLE (SCROLL ENABLED) ---------- */
+  .table-container {
+    max-height: 70vh;          /* key fix */
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  .professional-table {
+    font-size: 1.1rem;
+  }
+
+  .professional-table thead th {
+    padding: 16px;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+  }
+
+  .professional-table tbody td {
+    padding: 14px 16px;
+    max-width: none;
+    white-space: nowrap;
+  }
 }

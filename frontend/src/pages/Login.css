@@ -83,3 +83,62 @@ object-fit: cover;
   color: white;
   border: none;
 }
+
+@media screen
+  and (min-width: 1600px)
+  and (aspect-ratio: 16 / 9) {
+
+  
+  .login-container {
+    height: 100vh;
+    width: 100vw;
+  }
+  .tractor-image{
+    width: 68%;
+    height: 100%;
+  }
+  .login-validation{
+    width: 32%;
+    height: 100%;
+  }
+  .logo {
+    gap: 32px;
+  }
+
+  .logo img {
+    width: 40%;
+  }
+
+  .login-inputs {
+    margin-top: 23%;
+  }
+
+
+
+  .login-inputs form label {
+       font-size: 1.4rem;
+    margin-bottom: 5%;
+  }
+
+ 
+
+  .login-inputs form input {
+    height: 17%;
+    width: 100%;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    margin-bottom: 8%;
+    padding-left: 5%;
+  }
+
+
+  .login-inputs form button {
+    margin-top: 5%;
+    height:15%;
+    font-size: 1.6rem;
+    border-radius: 20px;
+  }
+
+
+ 
+}

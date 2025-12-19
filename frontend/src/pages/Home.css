@@ -83,3 +83,26 @@
 }
 
 
+@media screen 
+  and (min-width: 1600px)
+  and (aspect-ratio: 16 / 9) {
+
+  html {
+    font-size: 20px; 
+  }
+
+  .header {
+    height: 12vh;
+  }
+ .logo-moonrider img{
+   height: 60%;
+ }
+  .header-content {
+    width: 40%;
+  }
+
+  .buttons button {
+    font-size: 1.2rem;
+    border-radius: 1rem;
+  }
+}
